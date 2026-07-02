@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    text-align: center;
+    color: #333;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.warning-box {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    color: #856404;
+    font-size: 14px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #667eea;
+}
+
+.symptom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.symptom-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.symptom-item:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.symptom-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.symptom-item input[type="checkbox"]:checked {
+    accent-color: #667eea;
+}
+
+.symptom-item:has(input[type="checkbox"]:checked) {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.diagnose-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 30px;
+}
+
+.diagnose-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.diagnose-btn:active {
+    transform: translateY(0);
+}
+
+.result-section {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-content {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.result-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.result-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.result-item .label {
+    display: block;
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.result-item .value {
+    display: block;
+    color: #212529;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.error-message {
+    background: #f8d7da;
+    border-left: 4px solid #dc3545;
+    padding: 15px;
+    border-radius: 8px;
+    color: #721c24;
+    margin-top: 20px;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* 风险等级颜色 */
+.risk-level-1 {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.risk-level-2 {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.risk-level-3 {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .symptom-grid {
+        grid-template-columns: 1fr;
+    }
+}
